@@ -22,6 +22,5 @@ public class TestClass {
 		
 		System.out.println(list.finalList);
 		
-		Object obj  = new Object();
 	}
 }
