@@ -21,6 +21,12 @@ public class Node {
 		this.data = data;
 		this.nextNode = nextNode;
 	}
+	public Node() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 
 
 	
