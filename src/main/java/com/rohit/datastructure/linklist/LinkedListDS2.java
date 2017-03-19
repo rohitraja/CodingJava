@@ -1,5 +1,11 @@
 package com.rohit.datastructure.linklist;
 
+
+/**
+ * @author Rohit Raja
+ * Linklist implementation
+ *
+ */
 public class LinkedListDS2 {
 	
 	private Node head;
@@ -11,6 +17,9 @@ public class LinkedListDS2 {
 		this.head = null;
 	}
 
+	/*
+	 * Insert at end.
+	 */
 	public void insertAtEnd(Node newElement){
 		
 		if(this.head==null){
@@ -26,6 +35,9 @@ public class LinkedListDS2 {
 		}
 	}
 	
+	/*
+	 * Insert the done at head
+	 */
 	public void insertAtHead(Node newElement){
 		
 		if(this.head==null){
@@ -37,6 +49,9 @@ public class LinkedListDS2 {
 		}
 	}
 
+	/*
+	 * Delete the node at the end
+	 */
 	public void deleteAtEnd(){
 		
 		if(this.head==null){
@@ -53,6 +68,9 @@ public class LinkedListDS2 {
 		}
 	}
 	
+	/*
+	 * Delete the Head Node
+	 */
 	public void delteAtHead(){
 		if(this.head==null){
 			return;
@@ -67,6 +85,9 @@ public class LinkedListDS2 {
 		}
 	}
 	
+	/*
+	 * Find the data and delete
+	 */
 	public void delete(Integer data){
 		
 		if(this.head==null){
@@ -89,6 +110,9 @@ public class LinkedListDS2 {
 		}
 	}
 	
+	/*
+	 * Find the node of given data
+	 */
 	public Node find(Integer data){
 		Node iterator =null;
 		if(this.head==null){
@@ -102,6 +126,9 @@ public class LinkedListDS2 {
 		return iterator;
 	}
 	
+	/*
+	 * Print the list
+	 */
 	public void printList(){
 		
 		System.out.print("[ ");
@@ -113,9 +140,55 @@ public class LinkedListDS2 {
 		System.out.print("]");
 	}
 	
+	/*
+	 * @author: Rohit Raja 
+	 * raper over lenghtByRecurtion()
+	 */
+	public int lengthByRecuration(){
+		return lengthByRecuration(this.head);
+	}
+	private int lengthByRecuration(Node head){
+		if(head==null){
+			return 0;
+		}
+		else{
+			return 1+lengthByRecuration(head.getNextNode());
+		}
+		
+	}
+	
+	
+	
+	/*
+	 * @auther Rohit Raja 
+	 * Find the length of the list by recurstion method
+	 */
+	
+	public Boolean deleteKeyAtPosition(Integer n){
+		if(this.head==null){
+			return false;
+		}else if(n==1){
+			this.head = this.head.getNextNode();
+			return true;
+		}else{
+			Node iterator = new Node();
+			iterator = this.head;
+			if(this.lengthByRecuration()>=n){
+				while(n>2){
+					iterator= iterator.getNextNode();
+					n--;
+				}
+				iterator.setNextNode(iterator.getNextNode().getNextNode());
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+	
 	public static void main(String arg[]){
 		
-		LinkedListDS2 list = new LinkedListDS2();
+/*		LinkedListDS2 list = new LinkedListDS2();
 		list.insertAtEnd(new Node(1, null));
 		list.insertAtEnd(new Node(2, null));
 		list.insertAtEnd(new Node(3, null));
@@ -130,7 +203,16 @@ public class LinkedListDS2 {
 		list.delteAtHead();
 		list.printList();
 		list.delete(6);
-		list.printList();
+		list.printList();*/
+		
+		LinkedListDS2 list = new LinkedListDS2();
+		list.insertAtEnd(new Node(1,null));
+		list.insertAtEnd(new Node(2,null));
+		list.insertAtEnd(new Node(3,null));
+
+		System.out.println(list.deleteKeyAtPosition(3));
+		
+		System.out.println(list.lengthByRecuration());
 
 		
 		

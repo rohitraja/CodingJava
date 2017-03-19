@@ -18,25 +18,25 @@ public class LinkedListIntersection {
 		return node;
 	}
 	
-	public static Node findIntersection(Node firstHead,Node sendHead){
+	public static Node findIntersection(Node firstHead,Node secondHead){
 		
 		Set<Node> nodeSet = new HashSet<Node>();
-		if(firstHead==null || sendHead==null){
+		if(firstHead==null || secondHead==null){
 			return null;
 		}else{
-			while(firstHead!=null || sendHead!=null){
+			while(firstHead!=null || secondHead!=null){
 				if(nodeSet.contains(firstHead) ){
 					return firstHead;
 				}else{
 					nodeSet.add(firstHead);
 				}
-				if(nodeSet.contains(sendHead)){
-					return  sendHead;
+				if(nodeSet.contains(secondHead)){
+					return  secondHead;
 				}else{
-					nodeSet.add(sendHead);
+					nodeSet.add(secondHead);
 				}
 				firstHead = firstHead.getNextNode();
-				sendHead = sendHead.getNextNode();
+				secondHead = secondHead.getNextNode();
 			}
 		}
 		return null;
