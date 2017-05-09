@@ -25,10 +25,10 @@ public class Node {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-
-
+	@Override
+	public String toString() {
+		return "Node [data=" + data + ", nextNode=" + nextNode + "]";
+	}
 	
 
 }

@@ -43,10 +43,17 @@ public class LinkedListDS2Test {
 		assertEquals(true, list.deleteKeyAtPosition(1));
 		assertEquals(0,list.lengthByRecuration());
 		assertEquals(false, list.deleteKeyAtPosition(10));
-
-
+	}
+	
+	@Test
+	public void testSearchByRecurtion(){
 		
-
+		LinkedListDS2 list = new LinkedListDS2();
+		list.insertAtEnd(new Node(1,null));
+		list.insertAtEnd(new Node(2,null));
+		list.insertAtEnd(new Node(3,null));
+		list.insertAtEnd(new Node(4,null));
+		assertEquals(new Node(4,null), list.searchByRecurtion(4));
 		
 	}
 

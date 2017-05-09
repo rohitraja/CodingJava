@@ -157,11 +157,34 @@ public class LinkedListDS2 {
 		
 	}
 	
+	/*
+	 * @author: Rohit Raja
+	 * Raper searchByRecurtion(Node head,Integer val)
+	 */
+	public Node searchByRecurtion(Integer val){
+		
+		return searchByRecurtion(this.head, val);
+	}
+	
+	/*
+	 * @author: Rohit Raja
+	 * Search by recursive
+	 */
+	public Node searchByRecurtion(Node head,Integer val){
+		
+		if(head==null){
+			return null;
+		}else if (head.getData()==val){
+			return head;
+		}else{
+			return searchByRecurtion(head.getNextNode(),val);
+		}
+	}
 	
 	
 	/*
 	 * @auther Rohit Raja 
-	 * Find the length of the list by recurstion method
+	 * delete the given element.
 	 */
 	
 	public Boolean deleteKeyAtPosition(Integer n){
@@ -209,10 +232,12 @@ public class LinkedListDS2 {
 		list.insertAtEnd(new Node(1,null));
 		list.insertAtEnd(new Node(2,null));
 		list.insertAtEnd(new Node(3,null));
-
-		System.out.println(list.deleteKeyAtPosition(3));
 		
-		System.out.println(list.lengthByRecuration());
+		Node found = new Node();
+		found = list.searchByRecurtion(3);
+
+		System.out.println(found);
+		
 
 		
 		
